@@ -23,4 +23,22 @@ public class SCR_enemy : MonoBehaviour {
 
     [Tooltip("")] [SerializeField]
     public int passedReward;
+
+    public void SCR_enemyConstructor(Sprite passedEnemySprite, float passedDamage, float passedAttackAfterSeconds, float passedAttackRadius, float passedHealth, float passedSpeed, int passedReward) {
+        this.passedEnemySprite = passedEnemySprite;
+        this.passedDamage = passedDamage;
+        this.passedAttackAfterSeconds = passedAttackAfterSeconds;
+        this.passedAttackRadius = passedAttackRadius;
+        this.passedHealth = passedHealth;
+        this.passedSpeed = passedSpeed;
+        this.passedReward = passedReward;
+    }
+
+    private void Awake() {
+        
+    }
+
+    private void Update() {
+        
+    }
 }

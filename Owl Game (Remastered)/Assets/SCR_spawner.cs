@@ -23,32 +23,31 @@ public class SCR_spawner : MonoBehaviour {
     [Tooltip("")] [SerializeField] int currentWave;
     [Tooltip("")] [SerializeField] waveTemp[] waves;
 
-    void wave() {
-        SCR_enemy enemyScript = returnEnemyScript(currentWave);
+    //Make array/dictionary of enemy temps
 
+    private void Start() {
+        wave(0);
+        wave(1);
+    }
+
+    void wave(int currentWave) {
         int whichSpawner = UnityEngine.Random.Range(0, spawnLocations.Length);
 
-        GameObject currentEnemy = returnEnemy(spawnLocations[whichSpawner].position, enemyScript);
+        GameObject currentEnemy = returnEnemy(spawnLocations[whichSpawner].position, currentWave);
     }
 
-    GameObject returnEnemy(Vector2 pos, SCR_enemy enemyScript) {
+    GameObject returnEnemy(Vector2 pos, int currentWave) {
         GameObject enemy = Instantiate(new GameObject(), pos, Quaternion.identity);
-        SCR_enemy passedEnemyScript = enemy.AddComponent<SCR_enemy>();
-        passedEnemyScript = enemyScript;
+       
+        SCR_enemy script = enemy.AddComponent<SCR_enemy>();
+        script.SCR_enemyConstructor(
+            waves[currentWave].enemy.enemySprite,
+            waves[currentWave].enemy.damage,
+            waves[currentWave].enemy.attackAfterSeconds,
+            waves[currentWave].enemy.attackRadius,
+            waves[currentWave].enemy.health,
+            waves[currentWave].enemy.speed,
+            waves[currentWave].enemy.reward);
         return enemy;
-    }
-
-    SCR_enemy returnEnemyScript(int currentWave) { //Create a script for the instantiated enemy
-        SCR_enemy enemyScript = new SCR_enemy();
-        
-        enemyScript.passedEnemySprite = waves[currentWave].enemy.enemySprite;
-        enemyScript.passedDamage = waves[currentWave].enemy.damage;
-        enemyScript.passedAttackAfterSeconds = waves[currentWave].enemy.attackAfterSeconds;
-        enemyScript.passedAttackRadius = waves[currentWave].enemy.attackRadius;
-        enemyScript.passedHealth = waves[currentWave].enemy.health;
-        enemyScript.passedSpeed = waves[currentWave].enemy.speed;
-        enemyScript.passedReward = waves[currentWave].enemy.reward;
-
-        return enemyScript;
     }
 }
