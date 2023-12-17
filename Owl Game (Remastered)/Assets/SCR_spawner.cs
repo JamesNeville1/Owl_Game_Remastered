@@ -8,45 +8,58 @@ public class SCR_spawner : MonoBehaviour {
     Transform[] spawnLocations;
 
     [System.Serializable]
-    public struct waveTemp
-    {
+    public struct waveTemp {
         [Tooltip("")]
         public SCO_enemy enemy;
 
         [Tooltip("")] [SerializeField]
-        float timeBetweenSpawn;
+        public float timeBetweenSpawn;
 
         [Tooltip("")] [SerializeField]
         public int howMany;
     }
 
-    [Tooltip("")] [SerializeField] int currentWave;
-    [Tooltip("")] [SerializeField] waveTemp[] waves;
+    [Tooltip("")] [SerializeField]
+    bool finished;
+    [Tooltip("")] [SerializeField]
+    int currentWave;
+    [Tooltip("")] [SerializeField]
+    waveTemp[] waves;
+    [Tooltip("")] [SerializeField]
+    GameObject enemyTemplate;
 
     //Make array/dictionary of enemy temps
 
-    private void Start() {
-        wave(0);
-        wave(1);
+    void Awake() {
+        finished = false;
     }
-
-    void wave(int currentWave) {
+    void Start() {
+        StartCoroutine(wave(0));
+    }
+    IEnumerator wave(int currentWave) {
+        for (int i = 0; i < waves[currentWave].howMany; i++) {
+            yield return new WaitForSeconds(waves[currentWave].timeBetweenSpawn);
+            singleEnemy(waves[currentWave].enemy, currentWave);
+        }
+        finished = true;
+    }
+    void singleEnemy(SCO_enemy enemy, int currentWave) {
         int whichSpawner = UnityEngine.Random.Range(0, spawnLocations.Length);
 
-        GameObject currentEnemy = returnEnemy(spawnLocations[whichSpawner].position, currentWave);
+        GameObject currentEnemy = returnEnemy(spawnLocations[whichSpawner].position, currentWave, whichSpawner is 0? true : false);
     }
 
-    GameObject returnEnemy(Vector2 pos, int currentWave) {
-        GameObject enemy = Instantiate(new GameObject(), pos, Quaternion.identity);
-       
-        SCR_enemy script = enemy.AddComponent<SCR_enemy>();
+    GameObject returnEnemy(Vector2 pos, int currentWave, bool goingLeft) {
+        GameObject enemy = Instantiate(enemyTemplate, pos, Quaternion.identity);
+
+        SCR_enemy script = enemy.GetComponent<SCR_enemy>();
         script.SCR_enemyConstructor(
             waves[currentWave].enemy.enemySprite,
             waves[currentWave].enemy.damage,
             waves[currentWave].enemy.attackAfterSeconds,
             waves[currentWave].enemy.attackRadius,
             waves[currentWave].enemy.health,
-            waves[currentWave].enemy.speed,
+            goingLeft is true ? waves[currentWave].enemy.speed : -waves[currentWave].enemy.speed,
             waves[currentWave].enemy.reward);
         return enemy;
     }

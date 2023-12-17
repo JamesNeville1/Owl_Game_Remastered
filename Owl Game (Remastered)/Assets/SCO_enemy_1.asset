@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb5b9ee72e7d354297946cbdea4786a, type: 3}
   m_Name: SCO_enemy_1
   m_EditorClassIdentifier: 
-  enemySprite: {fileID: 21300000, guid: ecac757c5e5c63649818daa16a420906, type: 3}
+  enemySprite: {fileID: 21300000, guid: 464271a71fed7fb4a8b71cb7162c2272, type: 3}
   damage: 1
   attackAfterSeconds: 1
   attackRadius: 1

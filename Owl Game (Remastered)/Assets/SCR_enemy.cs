@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SCR_enemy : MonoBehaviour {
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public Sprite passedEnemySprite;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public float passedDamage;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public float passedAttackAfterSeconds;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public float passedAttackRadius;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public float passedHealth;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public float passedSpeed;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")][SerializeField]
     public int passedReward;
+
+    [Tooltip("")] [SerializeField]
+    SCR_health target;
 
     public void SCR_enemyConstructor(Sprite passedEnemySprite, float passedDamage, float passedAttackAfterSeconds, float passedAttackRadius, float passedHealth, float passedSpeed, int passedReward) {
         this.passedEnemySprite = passedEnemySprite;
@@ -34,11 +37,20 @@ public class SCR_enemy : MonoBehaviour {
         this.passedReward = passedReward;
     }
 
-    private void Awake() {
-        
-    }
+    void Awake() {
 
-    private void Update() {
-        
+    }
+    void Start() {
+        SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+        sr.sprite = passedEnemySprite;
+        sr.flipX = passedSpeed < 0 ? true : false;
+    }
+    void Update() {
+        transform.position += (Vector3)new Vector2(passedSpeed, 0) * Time.deltaTime;
+    }
+    void enemyMain() {
+        if(target == null) {
+
+        }
     }
 }
