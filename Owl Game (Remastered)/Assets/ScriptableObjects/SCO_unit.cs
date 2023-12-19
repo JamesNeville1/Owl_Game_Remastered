@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyPreset", menuName = "ScriptableObjects/Enemies")]
-public class SCO_enemy : ScriptableObject {
+[CreateAssetMenu(fileName = "UnitPreset", menuName = "ScriptableObjects/Units")]
+public class SCO_unit : ScriptableObject {
     [Tooltip("Ensure pivot is in the bottom centre for expected results")]
     public Sprite enemySprite;
 

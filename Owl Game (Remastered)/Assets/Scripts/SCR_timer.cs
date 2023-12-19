@@ -18,7 +18,7 @@ public class SCR_timer {
         }
     }
 
-    Action action; //Hold the function reference to run after time runs out
+    public Action action; //Hold the function reference to run after time runs out
     float timer;
     float maxTimer;
     public bool continueLoop { private set; get; } //Should timer continue? Used to determine if the timer should be reset

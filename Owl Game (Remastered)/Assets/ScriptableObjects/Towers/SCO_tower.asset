@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb5b9ee72e7d354297946cbdea4786a, type: 3}
+  m_Name: SCO_tower
+  m_EditorClassIdentifier: 
+  enemySprite: {fileID: -741788797, guid: 8a950e721bb7e4b469895df5eccee9fe, type: 3}
+  damage: 2
+  attackAfterSeconds: 0.1
+  attackRadius: 5
+  health: 10
+  speed: 0
+  reward: 0

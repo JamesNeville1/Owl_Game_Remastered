@@ -455,6 +455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476307020}
   - component: {fileID: 1476307022}
+  - component: {fileID: 1476307023}
   m_Layer: 0
   m_Name: Game Master
   m_TagString: Untagged
@@ -494,13 +495,26 @@ MonoBehaviour:
   spawnLocations:
   - {fileID: 668860052}
   - {fileID: 861524698}
-  finished: 0
   currentWave: 0
   waves:
   - enemy: {fileID: 11400000, guid: c1bab0cbfd44c174b9b23e7293881c49, type: 2}
     timeBetweenSpawn: 2
-    howMany: 1
-  enemyTemplate: {fileID: 8161668158146157785, guid: c0ad3d2beb4103342a4a99c6c4b753eb, type: 3}
+    howMany: 42
+  enemyTemplate: {fileID: 7530481702517848630, guid: 0bf390e5cb761b74a9765028e743afcc, type: 3}
+--- !u!114 &1476307023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476307019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f0f5cf6af59a64e822c7612057068f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  test: {fileID: 11400000, guid: 584721b2aea984641818cb7d1a0362f6, type: 2}
+  towerTemplate: {fileID: 6980533768854174022, guid: 3451508460f85094dac8efd3ffdf7685, type: 3}
 --- !u!1001 &731009433289435198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -563,7 +577,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 1276299212}
   - {fileID: 1476307020}
   - {fileID: 731009433289435198}
-  - {fileID: 1276299212}
   - {fileID: 1179114674}

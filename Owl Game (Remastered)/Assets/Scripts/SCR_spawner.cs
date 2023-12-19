@@ -11,7 +11,7 @@ public class SCR_spawner : MonoBehaviour {
     [System.Serializable]
     public struct waveTemp {
         [Tooltip("")]
-        public SCO_enemy enemy;
+        public SCO_unit enemy;
 
         [Tooltip("")] [SerializeField]
         public float timeBetweenSpawn;
@@ -45,7 +45,7 @@ public class SCR_spawner : MonoBehaviour {
         }
         //finished = true;
     }
-    void singleEnemy(SCO_enemy enemy, int currentWave) {
+    void singleEnemy(SCO_unit enemy, int currentWave) {
         int whichSpawner = UnityEngine.Random.Range(0, spawnLocations.Length);
 
         GameObject currentEnemy = returnEnemy(spawnLocations[whichSpawner].position, currentWave, whichSpawner is 0? true : false);
@@ -54,8 +54,8 @@ public class SCR_spawner : MonoBehaviour {
     GameObject returnEnemy(Vector2 pos, int currentWave, bool goingLeft) {
         GameObject enemy = Instantiate(enemyTemplate, pos, Quaternion.identity);
 
-        SCR_enemy script = enemy.GetComponent<SCR_enemy>();
-        script.SCR_enemyConstructor(
+        SCR_unit script = enemy.GetComponent<SCR_unit>();
+        script.SCR_unitConstructor(
             waves[currentWave].enemy.enemySprite,
             waves[currentWave].enemy.damage,
             waves[currentWave].enemy.attackAfterSeconds,

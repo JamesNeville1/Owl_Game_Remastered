@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class SCR_health : MonoBehaviour {
     public Action onDeath;
-    [Tooltip("")] [SerializeField]
-    float health;
+
+    [Tooltip("")]
+    public float health;
 
     public void adjust(float adjustBy) {
         health += adjustBy;
