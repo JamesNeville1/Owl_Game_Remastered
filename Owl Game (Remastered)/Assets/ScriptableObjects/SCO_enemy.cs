@@ -4,7 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyPreset", menuName = "ScriptableObjects/Enemies")]
 public class SCO_enemy : ScriptableObject {
-    [Tooltip("")]
+    [Tooltip("Ensure pivot is in the bottom centre for expected results")]
     public Sprite enemySprite;
 
     [Tooltip("")]
@@ -22,6 +22,6 @@ public class SCO_enemy : ScriptableObject {
     [Tooltip("")] 
     public float speed;
 
-    [Tooltip("")]
+    [Tooltip("How many points the player should be awarded.\nPlayer uses points to create and upgrade towers.")]
     public int reward;
 }

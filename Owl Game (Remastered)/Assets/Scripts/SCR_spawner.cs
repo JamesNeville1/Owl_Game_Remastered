@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class SCR_spawner : MonoBehaviour {
@@ -19,9 +20,10 @@ public class SCR_spawner : MonoBehaviour {
         public int howMany;
     }
 
-    [Tooltip("")] [SerializeField]
-    bool finished;
-    [Tooltip("")] [SerializeField]
+    //[Tooltip("")] [SerializeField]
+    //bool finished;
+    [Tooltip("Hold which wave the game is currently on")] [SerializeField]
+    [SCR_utils.custom_attributes.ReadOnly]
     int currentWave;
     [Tooltip("")] [SerializeField]
     waveTemp[] waves;
@@ -31,7 +33,7 @@ public class SCR_spawner : MonoBehaviour {
     //Make array/dictionary of enemy temps
 
     void Awake() {
-        finished = false;
+        //finished = false;
     }
     void Start() {
         StartCoroutine(wave(0));
@@ -41,7 +43,7 @@ public class SCR_spawner : MonoBehaviour {
             yield return new WaitForSeconds(waves[currentWave].timeBetweenSpawn);
             singleEnemy(waves[currentWave].enemy, currentWave);
         }
-        finished = true;
+        //finished = true;
     }
     void singleEnemy(SCO_enemy enemy, int currentWave) {
         int whichSpawner = UnityEngine.Random.Range(0, spawnLocations.Length);

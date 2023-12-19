@@ -25,10 +25,9 @@ public class SCR_enemy : MonoBehaviour {
     [Tooltip("")][SerializeField]
     public int passedReward;
 
-    [Tooltip("")] [SerializeField]
+    [Tooltip("")] [SerializeField] [SCR_utils.custom_attributes.ReadOnly]
     SCR_health target;
 
-    [Tooltip("")] [SerializeField]
     SCR_timer myTimer;
 
     public void SCR_enemyConstructor(Sprite passedEnemySprite, float passedDamage, float passedAttackAfterSeconds, float passedAttackRadius, float passedHealth, float passedSpeed, int passedReward) {
@@ -39,10 +38,6 @@ public class SCR_enemy : MonoBehaviour {
         this.passedHealth = passedHealth;
         this.passedSpeed = passedSpeed;
         this.passedReward = passedReward;
-    }
-
-    void Awake() {
-
     }
     void Start() {
         //
@@ -60,7 +55,7 @@ public class SCR_enemy : MonoBehaviour {
         enemyMain();
     }
     void enemyMain() {
-        if (target is null) {
+        if (target == null) {
             passive();
         }
         else {
@@ -71,8 +66,7 @@ public class SCR_enemy : MonoBehaviour {
         transform.position += (Vector3)new Vector2(passedSpeed, 0) * Time.deltaTime;
     }
     void attack() {
-        target.adjust(-passedDamage);
-        myTimer.resetSelf();
+        if(target.check()) target.adjust(-passedDamage);
     }
     void OnTriggerEnter2D(Collider2D collision) {
         collision.TryGetComponent(out SCR_health t);

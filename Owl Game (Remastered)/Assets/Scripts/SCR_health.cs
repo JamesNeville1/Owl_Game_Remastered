@@ -12,6 +12,10 @@ public class SCR_health : MonoBehaviour {
         health += adjustBy;
     }
 
+    public bool check() {
+        return (health <= 0) ? false : true;
+    }
+
     private void Update() {
         if(health <= 0) {
             if (onDeath != null) onDeath();
