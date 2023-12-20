@@ -7,7 +7,7 @@ public class SCR_timer {
 
         GameObject obj = new GameObject("My Timer", typeof(hook));
         if (parent is not null) obj.transform.parent = parent.transform;
-        obj.GetComponent<hook>().onUpdate = newTimer.Update;
+        obj.GetComponent<hook>().onUpdate = newTimer.update;
 
         return newTimer;
     }
@@ -29,7 +29,7 @@ public class SCR_timer {
         maxTimer = timer;
         this.continueLoop = continueLoop;
     }
-    void Update() {
+    void update() {
         if(continueLoop) {
             timer -= Time.deltaTime;
             if (timer <= 0) {

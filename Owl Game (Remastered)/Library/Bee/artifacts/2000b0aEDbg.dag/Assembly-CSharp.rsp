@@ -357,6 +357,7 @@
 "Assets/Scripts/SCR_base.cs"
 "Assets/Scripts/SCR_enemy.cs"
 "Assets/Scripts/SCR_health.cs"
+"Assets/Scripts/SCR_radial_attack_checker.cs"
 "Assets/Scripts/SCR_spawner.cs"
 "Assets/Scripts/SCR_timer.cs"
 "Assets/Scripts/SCR_tower.cs"
