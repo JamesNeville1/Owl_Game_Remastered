@@ -8,8 +8,8 @@ public class SCR_utils {
         public class ReadOnlyAttribute : PropertyAttribute { }
     }
     public class functions {
-        static public void attack(float damage, SCR_health target = null) {
-            if (target.check() && target != null) target.adjust(-damage);
+        static public void attack(float damage = 0, SCR_health target = null) {
+            if (target != null && target.check()) target.adjust(-damage);   
         }
     }
 }

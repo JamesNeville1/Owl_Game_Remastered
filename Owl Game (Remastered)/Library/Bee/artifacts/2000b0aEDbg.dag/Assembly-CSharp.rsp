@@ -354,16 +354,16 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.15f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/ScriptableObjects/SCO_unit.cs"
+"Assets/Scripts/SCR_attack_checker.cs"
 "Assets/Scripts/SCR_base.cs"
+"Assets/Scripts/SCR_build_manager.cs"
 "Assets/Scripts/SCR_enemy.cs"
 "Assets/Scripts/SCR_health.cs"
-"Assets/Scripts/SCR_radial_attack_checker.cs"
 "Assets/Scripts/SCR_spawner.cs"
 "Assets/Scripts/SCR_timer.cs"
 "Assets/Scripts/SCR_tower.cs"
 "Assets/Scripts/SCR_unit.cs"
 "Assets/Scripts/SCR_utils.cs"
-"Assets/SCR_build_manager.cs"
 -langversion:9.0
 
 /deterministic

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SCO_tower
   m_EditorClassIdentifier: 
   enemySprite: {fileID: -741788797, guid: 8a950e721bb7e4b469895df5eccee9fe, type: 3}
-  damage: 2
-  attackAfterSeconds: 0.1
+  damage: 10
+  attackAfterSeconds: 5
   attackRadius: 5
-  health: 10
+  health: 100
   speed: 0
   reward: 0
